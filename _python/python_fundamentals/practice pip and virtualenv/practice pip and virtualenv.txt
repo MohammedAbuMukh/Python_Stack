@@ -1,0 +1,42 @@
+1. pip list
+This command lists all installed Python packages in your current environment
+
+2.deactivate
+This command deactivates your current virtual environment, returning you to the system's default Python environment.
+
+3. pip3 list
+pip3 is specifically for Python 3, as opposed to pip, which may default to Python 2 on some systems.
+
+
+4. source myEnvironments/py3Env/bin/activate
+For Windows, you would use myEnvironments/py3Env/Scripts/activate
+
+5. pip install Django==2.2.4
+This installs Django version 2.2.4 in your current environment. After running this command, the terminal typically shows:
+
+The process of downloading Django 2.2.4.
+Any dependencies that also get installed.
+A "Successfully installed" message when the process is complete.
+
+6.pip freeze
+This command outputs a list of installed packages and their exact versions in a format suitable for a requirements.txt file. Unlike pip list, it focuses on exact versions.
+
+7.pip list vs pip freeze
+pip list: Displays installed packages in a simple format.
+pip freeze: Displays installed packages with exact version numbers in a format that’s easy to save into a requirements.txt file for replication in other environments.
+
+8.cd ~/Desktop
+This changes your directory to the Desktop directory in your user home folder.
+
+9.pip freeze > requirements.txt
+This command saves the output of pip freeze into a requirements.txt file on your Desktop. Running ls should now show this file (requirements.txt), and inside the file, you’ll find a list of packages with their exact versions.
+
+10.pip uninstall Django
+This uninstalls Django from your environment.
+
+11. pip show Django
+This command displays detailed information about the Django package, including:
+
+Version
+Location
+Dependencies

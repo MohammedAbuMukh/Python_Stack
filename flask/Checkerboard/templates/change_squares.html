@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> checker-board</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .color1 {
+            background-color: red;
+            width: 30px;
+            height: 30px;
+        }
+
+        .color2 {
+            background-color: black;
+            width: 30px;
+            height: 30px;
+        }
+
+        td {
+            margin: 0px;
+        }
+
+        tr {
+            margin: 0px
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        {% for x in range(0, rows): %}
+        {% if x % 2 != 0: %}
+        <tr>
+            {% for y in range(0, columns): %}
+            {% if y % 2 != 0: %}
+            <td class="color1"></td>
+            {% endif %}
+            {% if y % 2 == 0: %}
+            <td class="color2"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endif %}
+
+        {% if x % 2 == 0: %}
+        <tr>
+            {% for y in range(0, columns): %}
+            {% if y % 2 != 0: %}
+            <td class="color2"></td>
+            {% endif %}
+            {% if y % 2 == 0: %}
+            <td class="color1"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</body>
+
+</html>
