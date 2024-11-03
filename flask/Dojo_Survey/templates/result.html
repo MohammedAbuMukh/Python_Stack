@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-5">
+    <h1>Submitted Info</h1>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Name:</strong> {{ data.get('name') }}</li>
+        <li class="list-group-item"><strong>Dojo Location:</strong> {{ data.get('location') }}</li>
+        <li class="list-group-item"><strong>Favaroite Language:</strong> {{ data.get('language') }}</li>
+        <li class="list-group-item"><strong>Comments:</strong> {{ data.get('comment') }}</li>
+    </ul>
+    <a href="/" class="btn btn-primary mt-4">Go Back</a>
+</body>
+
+</html>

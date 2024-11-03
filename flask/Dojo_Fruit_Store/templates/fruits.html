@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojo Fruit Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Dojo Fruit Store!</h1>
+        <h4>What would you like to buy? </h4>
+    </header>
+    <aside>
+        <p>Welcome to Dojo Fruit Store!</p>
+        <p>Your dojo decided to buy fruits for all the students! Please use this app to tell us what you would like to have. Once we get your order, we’ll charge your student account automatically.</p>
+    </aside>
+    <form action="/checkout" method="POST">
+        <table>
+            <tr>
+                <th>Fruit Name</th>
+                <th>Quantity</th>
+            </tr>
+            {% for fruit in fruits %}
+            <tr>
+                <td>{{ fruit }}</td>
+                <td>
+                    <select name="{{ fruit }}">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3> Your information </h3>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="student_id">Your Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required>
+        </div>
+        <button type="submit">Buy me stuff!</button>
+    </form>
+</body>
+</html>

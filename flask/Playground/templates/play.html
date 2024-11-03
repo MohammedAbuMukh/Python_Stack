@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playground</title>
+    <style>
+        .box {
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(113, 179, 255);
+            margin: 10px;
+            display: inline-block;
+            border: 2px solid black;
+            background-color: {{ color }};
+
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1> Welcome!</h1>
+    <div>
+        {% for _ in range(times) %}
+            <div class="box"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>
