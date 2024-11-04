@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    border: solid 2px black;
+    margin: 50px;
+    padding: 20px;
+    width: 20%;
+    margin: 50px auto;
+
+}
+
+.btn{
+    background-color: rgb(27, 146, 122);
+    color: white;
+    box-shadow: 4px 4px 4px black;
+    padding: 5px;
+    
+}

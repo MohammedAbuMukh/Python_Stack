@@ -15,9 +15,5 @@ class Animal:
         self.health_level+=10
         print(f"{self.name} has been fed. Health and happiness increased!")
            
-           
-# test= Animal("Ahmad") 
-# test.display_info()
-# test.feed()
 
         

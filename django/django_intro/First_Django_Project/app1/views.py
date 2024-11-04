@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 def index(request):
     return redirect("/blogs")
-    # return HttpResponse("this is the equivalent of @app.route('/')!")
 
 def blogs(request):
     return HttpResponse("placeholder to display a new form to create a new blog with a method named index")

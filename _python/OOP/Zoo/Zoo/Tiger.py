@@ -10,5 +10,4 @@ class Tiger(Animal):
         self.happiness_level+=12
         print(f"{self.name} the tiger is now more vibrant!") 
           
-        
-        
+

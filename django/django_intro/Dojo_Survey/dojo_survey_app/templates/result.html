@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dojo Survey</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="container mt-5">
+  <h1>Submitted Info</h1>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Name:</strong> {{ name_from_form}}</li>
+    <li class="list-group-item"><strong>Dojo Location:</strong> {{ location_from_form }}</li>
+    <li class="list-group-item"><strong>Favaroite Language:</strong> {{ fav_lang_from_form }}</li>
+    <li class="list-group-item"><strong>Comments:</strong> {{ comment_from_form }}</li>
+  </ul>
+  <a href="/" class="btn btn-primary mt-4">Go Back</a>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <h1>Fill the Form Please </h1>
+    <form action="/result" method="POST">
+        {% csrf_token %}
+        Your Name: <input type="text" name="name" required> <br><br>
+
+        <label for="Location">Dojo Location: </label>
+        <select name="location" id="location">
+            <option value="San Jose">San Jose</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Oakland">Oakland</option>
+        </select> <br><br>
+
+        <label for="lang">Favorite Language:</label>
+        <select name="language" id="lang">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="php">PHP</option>
+            <option value="java">Java</option>
+        </select><br><br>
+
+        <label for="comment" id="comment"> Comment (optional):</label><br>
+        <textarea id="comment" name="comment"> </textarea> <br><br>
+
+        <input type="submit" value="Button" class="btn">
+
+    </form>
+
+
+
+</body>
+
+</html>
