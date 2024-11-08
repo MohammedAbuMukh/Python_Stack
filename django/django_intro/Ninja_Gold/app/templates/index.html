@@ -5,47 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninga Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-    <label for="YGold">Your Gold:</label>
-    <input type="number" id="YGold" name="YGold" value=50><br>
+    <div class="header">
+        <label for="yourGold">Your Gold:</label>
+        <input type="number" id="yourGold" name="yourGold" value={{gold}}><br>
+    </div>
 
     <div class="form-container">
 
-        <form action="" method="post">
+        <form action="process_money" method="post">
             {% csrf_token %}
-            <h2> Farm </h2>
-            <p> earns 10-20 gold</p>
-            <input type="hidden" name="which_form" value="farm">
+            <h2> Farm </h2><br>
+            <p> (earns 10-20 gold)</p> <br>
+            <input type="hidden" name="location" value="farm">
             <input type="submit" value="Find Gold!">
         </form>
 
-        <form action="" method="post">
+        <form action="process_money" method="post">
             {% csrf_token %}
-            <h2> Farm </h2>
-            <p> earns 10-20 gold</p>
-            <input type="hidden" name="which_form" value="farm">
+            <h2> Cave </h2> <br>
+            <p> (earns 10-20 gold)</p> <br>
+            <input type="hidden" name="location" value="cave">
             <input type="submit" value="Find Gold!">
         </form>
 
-        <form action="" method="post">
+        <form action="process_money" method="post">
             {% csrf_token %}
-            <h2> Farm </h2>
-            <p> earns 10-20 gold</p>
-            <input type="hidden" name="which_form" value="farm">
+            <h2> House </h2> <br>
+            <p> (earns 10-20 gold)</p> <br>
+            <input type="hidden" name="location" value="house">
             <input type="submit" value="Find Gold!">
         </form>
 
-        <form action="" method="post">
+        <form action="process_money" method="post">
             {% csrf_token %}
-            <h2> Farm </h2>
-            <p> earns 10-20 gold</p>
-            <input type="hidden" name="which_form" value="farm">
+            <h2> Quest </h2><br>
+            <p> (earns 0-50 gold)</p> <br>
+            <input type="hidden" name="location" value="quest">
             <input type="submit" value="Find Gold!">
         </form>
+    </div>
 
+    <button class="btn" onclick="window.location='reset';">Reset Game </button>
 
+    <h3 class="activity"> Activites: </h3>
+    <div class="box">
+        {% for activity in activities %}
+        <p style="color: {{ activity.color }}">{{ activity.message }}</p>
+        {% endfor %}
 
 
     </div>

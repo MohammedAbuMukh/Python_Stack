@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin: 20px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+form {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.activity {
+    margin: 20px;
+}
+
+.box {
+    border: 1px black solid;
+    height: 150px;
+    width: 80%;
+    margin: 20px;
+    overflow: auto;
+}
+
+.btn {
+    margin: 0 40%;
+}
