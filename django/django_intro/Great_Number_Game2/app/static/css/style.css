@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+}
+
+.message-box {
+    padding: 15px;
+    margin: 10px auto;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 16px;
+    width: fit-content;
+}
+
+.too-high,
+.too-low {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
