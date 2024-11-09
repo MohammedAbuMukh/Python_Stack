@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>highscore</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css\style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -12,15 +12,13 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Score</th>
                     <th>Attempts</th>
                 </tr>
             </thead>
             <tbody>
-                {% for entry in highscores %}
+                {% for entry in highscore %}
                     <tr>
                         <td>{{ entry.name }}</td>
-                        <td>{{ entry.score }}</td>
                         <td>{{ entry.attempts }}</td>
                     </tr>
                 {% endfor %}

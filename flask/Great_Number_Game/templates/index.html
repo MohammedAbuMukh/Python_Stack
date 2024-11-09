@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% if 'name' not in session %}
+            <form method="POST" action="/">
+                <label for="name">Enter your name to start:</label>
+                <input type="text" name="name" required>
+                <button type="submit">Start Game</button>
+            </form>
+        {% else %}
+            <h1>Welcome, {{ session['name'] }}!</h1>
+            <h2>Guess the Number!</h2>
+            <p>Number of attempts: {{ session['attempts'] }}</p>
+            <p>lil bit high number /Lil bit low +-20</p>
+            <p>bit big number / Bit low number +-10</p>
+            <form action="/guess" method="post">
+                <label for="guess">Your guess:</label>
+                <input type="number" name="guess" required {% if session['attempts'] >= 10 %}disabled{% endif %}>
+                {% if session['attempts'] < 10 %}
+                    <button type="submit">Submit</button>
+                {% endif %}
+            </form>
+            {% if session['feedback'] %}
+                <div class="feedback" style="background-color: {{ session['background'] }}">
+                    <p>{{ session['feedback'] }}</p>
+                </div>
+                {% if session['feedback'] == 'Correct!' %}
+                    <form action="/save_score" method="post">
+                        <button type="submit">Save Score</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+            <a href="/restart">Restart Game</a>
+        {% endif %}
+        <a href="/highscore">highscore</a>
+    </div>
+</body>
+</html>
