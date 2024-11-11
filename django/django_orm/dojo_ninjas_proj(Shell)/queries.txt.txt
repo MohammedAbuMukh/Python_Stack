@@ -1,0 +1,55 @@
+Query: Create 3 new dojos
+
+Dojo.objects.create(name="Axsos", city="Ramallah", state="PS")
+Dojo.objects.create(name="Exalt", city="Nablus", state="PS")
+Dojo.objects.create(name="Amideast", city="Jerusalem", state="PS")
+
+Query: Delete the 3 dojos you just created
+
+dojos = Dojo.objects.all()
+dojos.delete()
+
+Query: Create 3 more dojos
+
+Dojo.objects.create(name="Google", city="New York", state="US")
+Dojo.objects.create(name="Meta", city="New York", state="US")
+Dojo.objects.create(name="Apple", city="California", state="US")
+
+Query: Create 3 ninjas that belong to the first dojo
+ 
+Ninja.objects.create(dojo_id=Dojo.objects.get(id=4), first_name= "Ali", last_name="Jawabreh")
+Ninja.objects.create( dojo_id=Dojo.objects.get(id=4), first_name="Saed", last_name= "Zabin")
+Ninja.objects.create(dojo_id=Dojo.objects.get(id=4),first_name= "Moath", last_name="Dawood")
+
+Query: Create 3 ninjas that belong to the second dojo
+
+Ninja.objects.create( dojo_id=Dojo.objects.get(id=5), first_name="Yousef", last_name= "Daragmeh")
+Ninja.objects.create( dojo_id=Dojo.objects.get(id=5), first_name="Sami", last_name= "Sawaftah")
+Ninja.objects.create(dojo_id=Dojo.objects.get(id=5),first_name= "Ayham", last_name="Younes")
+
+
+Query: Create 3 ninjas that belong to the third dojo
+
+Ninja.objects.create(dojo_id=Dojo.objects.get(id=6),first_name= "Loay", last_name="Husni")
+Ninja.objects.create(dojo_id=Dojo.objects.get(id=6),first_name= "Rami", last_name="Hamada")
+Ninja.objects.create( dojo_id=Dojo.objects.get(id=6), first_name="Jad", last_name= "Hussen")
+
+Query: Retrieve all the ninjas from the first dojo
+first_dojo = Dojo.objects.first()
+first_dojo.ninjas.all()
+
+Query: Retrieve all the ninjas from the last dojo
+last_dojo = Dojo.objects.last()
+last_dojo.ninjas.all()
+
+
+Query: Retrieve the last ninja's dojo
+last_ninja = Ninja.objects.last()
+last_ninja.dojo_id
+
+
+
+
+
+
+
