@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo & Ninjas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>Add a Dojo</h2>
+                <form action="/add_dojo/" method="post" class="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" name="city" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" name="state" class="form-control" required maxlength="2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Dojo</button>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Add a Ninja</h2>
+                <form action="/add_ninja/" method="post" class="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" name="first_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dojo">Dojo</label>
+                        <select name="dojo" class="form-control" required>
+                            <option value="">-select a dojo-</option>
+                            {% for dojo in dojos %}
+                            <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Ninja</button>
+                </form>
+            </div>
+        </div>
+
+        <hr class="border border-primary border-3 opacity-75">
+
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>All the Dojos</h2>
+                <div class="list-group">
+                    {% for dojo in dojos %}
+                    <div class="list-group-item">
+                        <h3>Ninjas at {{ dojo.name }} - {{ dojo.ninjas.count }}</h3>
+                        <ul class="list-group">
+                            {% for ninja in dojo.ninjas.all %}
+                            <li class="list-group-item">{{ ninja.first_name }} {{ ninja.last_name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <form action="{% url 'delete_dojo' dojo.id %}" method="post" class="mt-2">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
