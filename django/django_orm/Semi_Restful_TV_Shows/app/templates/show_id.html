@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <a href="/shows" class="btn btn-outline-primary mb-4">&larr; Go Back</a>
+
+    <div class="card shadow-sm">
+        <div class="card-header text-center bg-primary text-white">
+            <h2>TV Show Details</h2>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title text-primary">Show ID: {{ show.id }}</h3>
+            <p class="card-text"><strong>Title:</strong> {{ show.title }}</p>
+            <p class="card-text"><strong>Released Date:</strong> {{ show.released_date }}</p>
+            <p class="card-text"><strong>Description:</strong> {{ show.desc }}</p>
+            <p class="card-text"><strong>Created At:</strong> {{ show.created_at }}</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'edit' show.id %}" class="btn btn-warning mx-2">Edit</a>
+            <a href="/shows/{{ show.id }}/destroy" class="btn btn-danger mx-2">Delete</a>
+        </div>
+    </div>
+</body>
+
+</html>

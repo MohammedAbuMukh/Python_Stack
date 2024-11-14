@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Gold Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <label for="total_gold">Your Gold:</label>
+        <input type="text" id="total_gold" name="total_gold" value="{{ gold }}" readonly>
+        <p>Number of attempts: {{ attempts }}</p>
+    </header>
+    <main class="main_contanier">
+        
+        <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="farm">
+                    <h2>Farm</h2>
+                    <p>(earns 10-30 golds)</p>
+                    <button type="submit" {% if attempts >= 10 %}disabled{% endif %}>Find Gold!</button>
+                </form>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="cave">
+                    <h2>Cave</h2>
+                    <p>(earns 15-20 golds)</p>
+                    <button type="submit" {% if attempts >= 10 %}disabled{% endif %}>Find Gold!</button>
+                </form>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="house">
+                    <h2>House</h2>
+                    <p>(earns 13-40 golds)</p>
+                    <button type="submit" {% if attempts >= 10 %}disabled{% endif %}>Find Gold!</button>
+                </form>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="casino">
+                    <h2>Casino</h2>
+                    <p>(earns/takes 0-50 golds)</p>
+                    <button type="submit" {% if attempts >= 10 %}disabled{% endif %}>Find Gold!</button>
+                </form>
+            </div>
+        </div>
+        <div class="activities">
+            <h2>Activities:</h2>
+            <div>
+                {% for activity in activities %}
+                    {{ activity|safe }}
+                {% endfor %}
+            </div>
+        </div>
+        {% if attempts >= 10 %}
+            <form action="/highscore" method="post">
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" name="name" required>
+                <button type="submit">Submit Score</button>
+            </form>
+        {% endif %}
+    </main>
+    <footer>
+        <form action="/reset" method="post">
+            <button type="submit">Reset Game</button>
+        </form>
+        <a href="/highscore">highscore</a>
+    </footer>
+</body>
+</html>

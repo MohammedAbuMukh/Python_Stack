@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkerboard</title>
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat({{ cols }}, 50px);
+            grid-template-rows: repeat({{ rows }}, 50px);
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+        }
+        .black {
+            background-color: black;
+        }
+        .white {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        {% for row in range(rows) %}
+            {% for col in range(cols) %}
+                <div class="cell {% if (row + col) % 2 == 0 %}black{% else %}white{% endif %}"></div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</body>
+</html>
