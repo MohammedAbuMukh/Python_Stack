@@ -18,6 +18,8 @@ class UserManger(models.Manager):
             releaseDate = datetime.datetime.strptime(
                 postData['birth_date'], '%Y-%m-%d')
             todayDate = datetime.datetime.today()
+            
+            
             if todayDate < releaseDate:
                 errors['birth_date'] = "Date should be in the past!"
         else:

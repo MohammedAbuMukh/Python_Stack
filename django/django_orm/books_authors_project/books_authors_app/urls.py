@@ -1,11 +1,13 @@
 from django.urls import path
-from . import views
+from books_authors_app import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('add_book',views.add_book, name='add_book'),
-    path('view_book/<int:id>', views.view_book, name='view_book'),
-    # path('add_dojo/', views.add_dojo, name='add_dojo'),
-    # path('add_ninja/', views.add_ninja, name='add_ninja'),
-    # path('delete_dojo/<int:dojo_id>/', views.delete_dojo, name='delete_dojo'),
+    path('', views.view_books, name='view_books'),
+    path('authors', views.view_authors, name='view_authors'),
+    path('authors/<int:id>', views.view_author, name='view_author'),
+    path('books/<int:id>', views.view_book, name='view_book'),
+    path('add_book', views.add_book, name='add_book'),
+    path('add_author', views.add_author, name='add_author'),
+    path('assign_book', views.assign_book, name='assign_book'),
+    path('assign_author', views.assign_author, name='assign_author'),
 ]
